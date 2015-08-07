@@ -1,35 +1,22 @@
 {
-  "name": "OpenShift-Sample-App",
-  "version": "1.0.0",
-  "description": "OpenShift Sample Application",
+  "name": "better-upec-timetable",
+  "version": "0.0.1",
+  "description": "Better timetable for UPEC students",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [
-    "OpenShift",
-    "Node.js",
-    "application",
-    "openshift"
+    "upec",
+    "timetable"
   ],
-  "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url": "http://www.openshift.com/"
-  },
-  "homepage": "http://www.openshift.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/openshift/origin-server"
-  },
-
-  "engines": {
-    "node": ">= 0.6.0",
-    "npm": ">= 1.0.0"
-  },
-
+  "author": "Marvin ROGER",
+  "license": "ISC",
   "dependencies": {
-    "express": "~3.4.4"
-  },
-  "devDependencies": {},
-  "bundleDependencies": [],
-
-  "private": true,
-  "main": "server.js"
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "ical": "^0.4.0",
+    "moment": "^2.10.6"
+  }
 }
