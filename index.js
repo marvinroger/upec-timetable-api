@@ -10,9 +10,11 @@ var utils = require('./lib/utils');
 
 switch (process.env.NODE_ENV) {
   case 'production':
-    app.set('listening port', 80);
+    app.set('listening ip', process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0');
+    app.set('listening port', process.env.OPENSHIFT_NODEJS_PORT || 80);
     break;
   default:
+    app.set('listening ip', '0.0.0.0');
     app.set('listening port', 3000);
     break;
 }
@@ -50,4 +52,4 @@ app.use(function(err, req, res, next) {
 
 // Listen
 
-app.listen(app.get('listening port'));
+app.listen(app.get('listening port'), app.get('listening ip'));
