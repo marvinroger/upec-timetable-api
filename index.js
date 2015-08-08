@@ -36,7 +36,7 @@ app.post('/timetable', function(req, res) {
   else if (new Date(req.body.startDate).getDay() != 1) { errors.push('startDate must be a monday') }
   if (errors.length > 0) { return res.status(400).json({ errors: errors }); }
   
-  timetable.get(req.body.projectId, req.body.resourcesId, new Date(req.body.startDate), moment(req.body.startDate).day(7).toDate(), function(err, timetable) {
+  timetable.get(req.body.projectId, req.body.resourcesId, new Date(req.body.startDate), moment(req.body.startDate).day(6).toDate(), function(err, timetable) {
     if (err) {
       console.log(err);
       return res.status(500).json({errors: ['Error gathering timetable from the UPEC ADE']});
