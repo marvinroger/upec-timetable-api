@@ -23,9 +23,7 @@ app.use(bodyParser.json());
 // Router
 
 app.get('/', function(req, res) {
-  return res.send(`Usage:<br>
-    POST /timetable
-  `);
+  return res.send('Usage:<br> POST /timetable');
 });
 
 app.post('/timetable', function(req, res) {
