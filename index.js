@@ -33,6 +33,7 @@ app.post('/timetable', function(req, res) {
   if (!req.body.hasOwnProperty('resourcesId') || !utils.isInteger(req.body.resourcesId)) { errors.push('resourcesId must exist and be an integer'); }
   var dateRegex = /^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$/;
   if (!req.body.hasOwnProperty('startDate') || !dateRegex.test(req.body.startDate)) { errors.push('startDate must exist and be an ISO 8601 date'); }
+  if (!req.body.hasOwnProperty('endDate') || !dateRegex.test(req.body.endDate)) { errors.push('endDate must exist and be an ISO 8601 date'); }
   else if (new Date(req.body.startDate) >= new Date(req.body.endDate)) { errors.push('endDate must be after startDate'); }
   if (errors.length > 0) { return res.status(400).json({ errors: errors }); }
   
@@ -40,7 +41,7 @@ app.post('/timetable', function(req, res) {
     projectId: req.body.projectId, 
     resourcesId: req.body.resourcesId,
     startDate: new Date(req.body.startDate),
-    endDate: new Date(req.body.endDate)//moment(req.body.startDate).isoWeekday(6).toDate(),
+    endDate: new Date(req.body.endDate)
   }, function(err, timetable) {
     if (err) {
       console.log(err);
