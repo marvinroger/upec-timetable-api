@@ -10,9 +10,9 @@
   // Inject block in page
   
   var builder = [];
-  builder.push('<div id="but-infos" style="position: absolute; top: 0px; right: 0px; width: 120px; height: auto; box-sizing: border-box; padding: 5px; background-color: rgba(0, 0, 0, .5); border-radius: 10px 0px 0px 10px; color: white; z-index: 9999;">');
-  builder.push('<b>projectId: </b><span id="but-project-id">?</span><br>');
-  builder.push('<b>resourceId: </b><span id="but-resource-id">?</span>');
+  builder.push('<div id="but-infos" style="position: absolute; top: 0px; right: 0px; width: 200px; height: auto; box-sizing: border-box; padding: 5px; background-color: rgba(0, 0, 0, .5); border-radius: 10px 0px 0px 10px; color: white; z-index: 9999;">');
+  builder.push('<b>ID projet : </b><span id="but-project-id">?</span><br>');
+  builder.push('<b>ID ressource : </b><span id="but-resource-id">?</span>');
   builder.push('</div>');
   prepend(document.body, builder.join('\n'));
   
